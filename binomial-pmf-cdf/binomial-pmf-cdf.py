@@ -7,8 +7,6 @@ def binomial_pmf_cdf(n, p, k):
     """
     # Write code here
     pmf = comb(n, k) * p**k * (1 - p)**(n-k)
-    cmf = sum([
-        comb(n, i) * p**i * (1 - p)**(n-i) 
-        for i in range(k + 1)
-    ])
+    k = np.arange(k + 1)
+    cmf = np.sum(comb(n, k) * p**k * (1 - p)**(n-k))
     return pmf, cmf
